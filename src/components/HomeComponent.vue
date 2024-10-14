@@ -1,13 +1,19 @@
 <template>
     <div>
-        <h1>New Any Food</h1>
+        <HomeHeader />
     </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import HomeHeader from "@/components/HomeHeader.vue";
 
-@Component
+@Component({
+    components: {
+        HomeHeader
+    }
+})
+
 export default class HomeComponent extends Vue {}
 
 </script>
