@@ -18,14 +18,14 @@
                         <span>Cuisines:</span>
 
                         <ul>
-                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'all'}">all</li>
-                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'pizza'}">pizza</li>
-                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'sushi'}">sushi</li>
-                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'vegan'}">vegan</li>
-                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'steak'}">steak</li>
-                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'asian'}">asian</li>
-                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'seafood'}">seafood</li>
-                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'pasta'}">pasta</li>
+                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'All'}">All</li>
+                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Pizza'}">Pizza</li>
+                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Sushi'}">Sushi</li>
+                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Vegan'}">Vegan</li>
+                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Steak'}">Steak</li>
+                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Asian'}">Asian</li>
+                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Seafood'}">Seafood</li>
+                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Pasta'}">Pasta</li>
                         </ul>
                     </div>
                 </div>
@@ -76,7 +76,7 @@ import { AFRestaurants } from "@/mixins/interface";
 export default class HomeComponent extends Mixins(
     AllRestaurants
 ) {
-    currentTabsSelect: string = 'all';
+    currentTabsSelect: string = 'All';
 
     selectTabs(event: any): void {
         const selected: string = event.target.textContent;
@@ -84,16 +84,18 @@ export default class HomeComponent extends Mixins(
         this.currentTabsSelect = selected;
     }
 
-    getInfoRestaurant(item: AFRestaurants) {
-        console.log(item);
+    getInfoRestaurant(item: AFRestaurants): void {
+        this.$router.push('/restaurant/menu');
+
+        sessionStorage.setItem('restaurant', JSON.stringify(item));
     }
 
     get getRestaurant(): AFRestaurants[] {
-        if (this.currentTabsSelect === 'all') {
+        if (this.currentTabsSelect === 'All') {
             return this.restaurants;
         } else {
             return this.restaurants.filter((i: AFRestaurants) => {
-                return i.category.toLowerCase().includes(this.currentTabsSelect);
+                return i.category.toLowerCase().includes(this.currentTabsSelect.toLowerCase());
             })
         }
     }
@@ -104,49 +106,6 @@ export default class HomeComponent extends Mixins(
 <style lang="sass" scoped>
 
 @import ../style/home
-
-.tabs-header
-    padding: 0 24px
-    background-color: #e5e5e5
-
-.tabs-container
-    margin: 0 auto
-    max-width: 900px
-    width: 100%
-
-.tabs-list
-    display: flex
-    justify-content: center
-    user-select: none
-
-    span
-        padding: 12px 0
-        font-size: 18px
-        font-weight: bold
-    
-    ul
-        display: flex
-
-        li
-            padding: 12px 0
-            margin: 0 0 0 24px
-            font-size: 18px
-            line-height: 1.5
-            font-weight: 400
-            cursor: pointer
-
-        li.active
-            border-bottom: 4px solid #000
-
-
-.tabs-content
-    padding: 30px 0
-
-.tab-panel
-    padding: 0 24px
-    margin: 0 auto
-    max-width: 900px
-    width: 100%
 
 .restaurant-card
     display: flex

@@ -17,10 +17,11 @@
         left: 50%
         transform: translate(-50%, -50%)
 
-    div
+    div.content
         position: absolute
         color: #fff
         text-align: center
+        z-index: 1
 
         h1
             font-size: 40px
@@ -29,3 +30,82 @@
         span
             font-size: 22px
             font-weight: 400
+
+    div.rate
+        display: flex
+        justify-content: center
+
+        h4
+            font-size: 20px
+            font-weight: 500
+            margin-bottom: 6px
+
+        p
+            font-size: 17px
+            margin-bottom: 6px
+
+        i
+            color: #ffd25d
+
+        span
+            margin-left: 6px
+
+        div
+            display: flex
+            align-items: center
+            font-size: 16px
+
+.main-box .back
+    position: absolute
+    left: 0
+    top: 0
+    right: 0
+    bottom: 0
+    background: rgba(0, 0, 0, .5)
+    backdrop-filter: blur(4px)
+    z-index: 1
+
+
+// ============= Tabs ================
+
+.tabs-content
+    padding: 30px 0
+
+.tab-panel
+    padding: 0 24px
+    margin: 0 auto
+    max-width: 900px
+    width: 100%
+
+.tabs-header
+    padding: 0 24px
+    background-color: #e5e5e5
+
+.tabs-container
+    margin: 0 auto
+    max-width: 900px
+    width: 100%
+
+.tabs-list
+    display: flex
+    justify-content: center
+    user-select: none
+
+    span
+        padding: 12px 0
+        font-size: 18px
+        font-weight: bold
+    
+    ul
+        display: flex
+
+        li
+            padding: 12px 0
+            margin: 0 0 0 24px
+            font-size: 18px
+            line-height: 1.5
+            font-weight: 400
+            cursor: pointer
+
+        li.active
+            border-bottom: 4px solid #000

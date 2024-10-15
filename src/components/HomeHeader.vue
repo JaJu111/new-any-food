@@ -31,12 +31,18 @@ import { Vue, Component } from 'vue-property-decorator';
 export default class HomeHeader extends Vue {
     currentCurrency: string = JSON.parse(sessionStorage.getItem("currency")) || 'USD';
 
+    created() {
+        sessionStorage.setItem("currency", JSON.stringify(this.currentCurrency));
+    }
+
     getCurrency(event: any): void {
         const currency: string = event.target.textContent;
 
         this.currentCurrency = currency;
 
         sessionStorage.setItem("currency", JSON.stringify(currency));
+
+        this.$emit('currency', this.currentCurrency);
     }
 }
 
