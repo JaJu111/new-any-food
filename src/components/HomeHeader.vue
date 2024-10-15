@@ -2,8 +2,6 @@
     <div>
         <div class="navbar-box">
             <div class="navbar-box-container">
-                <div></div>
-                
                 <router-link to="/">
                     <img src="../assets/logo.svg" class="mt-1">
                 </router-link>
@@ -11,10 +9,6 @@
                 <div class="select-box">
                     <div class="form-check">
                         <span @click="getCurrency($event)" :class="{'active': currentCurrency === 'USD'}">USD</span>
-                        <div></div>
-                    </div>
-                    <div class="form-check">
-                        <span @click="getCurrency($event)" :class="{'active': currentCurrency === 'EUR'}">EUR</span>
                         <div></div>
                     </div>
                     <div class="form-check">
@@ -38,7 +32,7 @@ export default class HomeHeader extends Vue {
     currentCurrency: string = JSON.parse(sessionStorage.getItem("currency")) || 'USD';
 
     getCurrency(event: any): void {
-        const currency = event.target.textContent;
+        const currency: string = event.target.textContent;
 
         this.currentCurrency = currency;
 

@@ -1,5 +1,6 @@
 
 export interface AFRestaurants {
+    id: number
     title: string
     category: string
     stars: number

@@ -5,9 +5,10 @@ import { AFRestaurants } from './interface';
 export default class AllRestaurants extends Vue {
     restaurants: AFRestaurants[] = [
         {
+            id: 1,
             title: 'Dishoom',
             category: 'pizza, sushi, vegan',
-            stars: 4,
+            stars: 3,
             img: 'https://course-react.javascript.ru/assets/thumb/sushi_5.jpg',
             menu: [
                 {
@@ -28,6 +29,7 @@ export default class AllRestaurants extends Vue {
             ]
         },
         {
+            id: 2,
             title: 'Homeslice',
             category: 'steak',
             stars: 4,
@@ -46,6 +48,7 @@ export default class AllRestaurants extends Vue {
             ]
         },
         {
+            id: 3,
             title: 'Fabrique',
             category: 'asian, sushi, seafood',
             stars: 5,
@@ -69,6 +72,7 @@ export default class AllRestaurants extends Vue {
             ]
         },
         {
+            id: 4,
             title: 'Flat Iron',
             category: 'pasta, pizza',
             stars: 2,
