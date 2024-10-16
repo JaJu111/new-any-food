@@ -1,4 +1,4 @@
-import { Vue, Component, Prop } from 'vue-property-decorator';
+import { Vue, Component, Prop, Watch } from 'vue-property-decorator';
 import { AFRestaurants, AFRestaurantsInfo, AFUserSend } from '../interface';
 
 @Component
@@ -10,6 +10,9 @@ export default class MenuComponentMixin extends Vue {
     userName: string = '';
     userPhone: string = '';
     userAdress: string = '';
+    errorName: boolean = false;
+    errorPhone: boolean = false;
+    errorAddress: boolean = false;
 
     getPrice(amount: number): string {
         if (this.currentCurrency === 'USD') {
@@ -96,11 +99,32 @@ export default class MenuComponentMixin extends Vue {
             address: this.userAdress
         }
 
-        if (!USER.name.length || !USER.phone.length || !USER.address.length) return;
+        if (!USER.name) {
+            this.errorName = true;
+        } else {
+            this.errorName = false;
+        }
 
-        this.$router.push('/');
+        if (!USER.phone) {
+            this.errorPhone = true;
+        } else {
+            this.errorPhone = false;
+        }
 
-        sessionStorage.setItem("sendCheck", JSON.stringify(true));
+        if (!USER.address) {
+            this.errorAddress = true;
+        } else {
+            this.errorAddress = false;
+        }
+
+        if (USER.name && USER.phone && USER.address) {
+            this.$router.push('/');
+
+            sessionStorage.setItem('user', JSON.stringify(USER));
+            sessionStorage.setItem("sendCheck", JSON.stringify(true));
+
+            this.userName = this.userPhone = this.userAdress = '';
+        }
     }
 
     get getMenuArr(): AFRestaurantsInfo[] {
@@ -127,6 +151,27 @@ export default class MenuComponentMixin extends Vue {
             let result = amount * UZS;
 
             return this.format(+result.toFixed());
+        }
+    }
+
+    @Watch('userName')
+    getUserName(val: string): void {
+        if (val) {
+            this.errorName = false;
+        }
+    }
+
+    @Watch('userPhone')
+    getUserPhone(val: string): void {
+        if (val) {
+            this.errorPhone = false;
+        }
+    }
+
+    @Watch('userAdress')
+    getUserAdress(val: string): void {
+        if (val) {
+            this.errorAddress = false;
         }
     }
 }
