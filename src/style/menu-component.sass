@@ -1,0 +1,167 @@
+.menu
+    &-box
+        display: flex
+
+    &-left
+        width: 54%
+
+        &__card
+            display: flex
+            justify-content: space-between
+            padding: 20px 26px
+            border: 1px solid #e5e5e5
+            margin-bottom: 16px
+
+            h1
+                font-size: 18px
+                font-weight: 500
+                margin-bottom: 4px
+
+            span
+                font-size: 17px
+
+            p
+                font-size: 18px
+                font-weight: 500
+                color: #f0ad4e
+                margin-top: 10px
+
+    &-right
+        height: 100%
+        width: 46%
+        margin-left: 24px
+        background-color: #fff0db
+        padding: 13px 16px 20px
+
+        h1
+            text-align: center
+            margin: 20px 0
+            font-size: 18px
+            font-weight: 600
+
+        span.title
+            font-size: 14px
+            margin-bottom: 6px
+
+        div.item-card
+            display: flex
+            justify-content: space-between
+            align-items: center
+            width: 170px
+
+            span.amount
+                font-size: 14px
+
+        div.add-card
+            display: flex
+            justify-content: space-between
+            align-items: center
+
+
+.add-dish
+    display: flex
+
+    button
+        color: #fff
+        background-color: #f0ad4e
+        border-radius: 2px
+        width: 36px
+        height: 36px
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        font-weight: 700
+        outline: none
+        cursor: pointer
+
+.add-dish__right
+    display: flex
+
+    button
+        color: #fff
+        background-color: #f0ad4e
+        border-radius: 2px
+        width: 20px
+        height: 20px
+        display: flex
+        align-items: center
+        justify-content: center
+        outline: none
+        cursor: pointer
+
+.add-content
+    text-align: center
+
+    h1
+        color: #898989
+        font-weight: 600
+        margin-bottom: 5px
+        font-size: 18px
+        line-height: 28px
+
+.line-box
+    width: 100%
+    height: 1px
+    background-color: #000
+    margin: 20px 0
+
+.checkout-box__info
+    display: flex
+    justify-content: space-between
+    margin-bottom: 6px
+
+    &-text
+        font-size: 14px
+
+    &-total
+        font-size: 14px
+        font-weight: bold
+
+.checkout-btn
+    width: 100%
+    height: 50px
+    background-color: #e4661e
+    margin-top: 22px
+    font-size: 18px
+    border-radius: 4px
+    font-weight: 700
+    outline: none
+    padding: 10px 20px
+    cursor: pointer
+    transition: all .2s
+    color: #fff
+
+.checkout-btn:hover
+    background-color: #ff8b49
+
+
+@media (max-width: 840px)
+    .menu
+        &-box
+            flex-direction: column
+
+        &-left
+            width: 100%
+
+        &-right
+            width: 100%
+            margin-left: 0
+
+
+@media (max-width: 430px)
+    .menu
+        &-box
+
+        &-box.send
+            display: flex
+            flex-direction: column-reverse
+
+        &-right
+            margin-bottom: 24px
+
+            div.item-card
+                width: 160px
+
+                span.amount
+                    font-size: 13px

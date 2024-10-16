@@ -1,11 +1,11 @@
 <template>
-    <div>
+    <div class="home-page">
         <HomeHeader />
 
         <div class="main-box">
             <img src="../assets/header-img.jpg">
 
-            <div>
+            <div class="main-header__box">
                 <h1>Order Food</h1>
                 <span>From {{ restaurants.length }} Restaurants</span>
             </div>
@@ -58,6 +58,10 @@
                 </div>
             </div>
         </div>
+
+        <div v-if="sendCheck" class="banner-box">
+            <h1>Thank You! Your order is being prepared</h1>
+        </div>
     </div>
 </template>
 
@@ -77,6 +81,17 @@ export default class HomeComponent extends Mixins(
     AllRestaurants
 ) {
     currentTabsSelect: string = 'All';
+    sendCheck: boolean = JSON.parse(sessionStorage.getItem("sendCheck")) || false;
+
+    created() {
+        if (this.sendCheck) {
+            setTimeout(() => {
+                this.sendCheck = false;
+
+                sessionStorage.setItem("sendCheck", JSON.stringify(false));
+            }, 5000)
+        }
+    }
 
     selectTabs(event: any): void {
         const selected: string = event.target.textContent;

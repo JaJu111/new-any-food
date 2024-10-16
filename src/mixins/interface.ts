@@ -15,3 +15,9 @@ export interface AFRestaurantsInfo {
     amount: number
     dish: number
 }
+
+export interface AFUserSend {
+    name: string
+    phone: string
+    address: string
+}
