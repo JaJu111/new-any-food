@@ -23,15 +23,15 @@
             <div class="form-send">
                 <span class="form-send__title">Name</span>
                 <input v-model.trim="userName" type="text" :class="['form-control my-2', {'error-input': errorName}]">
-                <p v-if="errorName" class="error-text">Enter Name</p>
+                <!-- <p v-if="errorName" class="error-text">Enter Name</p> -->
 
                 <span class="form-send__title">Phone Number</span>
                 <input v-model.trim="userPhone" type="number" :class="['form-control my-2', {'error-input': errorPhone}]">
-                <p v-if="errorPhone" class="error-text">Enter phone number</p>
+                <!-- <p v-if="errorPhone" class="error-text">Enter phone number</p> -->
 
                 <span class="form-send__title">Address</span>
                 <textarea v-model.trim="userAdress" :class="['form-control my-2', {'error-input': errorAddress}]"></textarea>
-                <p v-if="errorAddress" class="error-text">Enter address</p>
+                <!-- <p v-if="errorAddress" class="error-text">Enter address</p> -->
 
                 <button class="checkout-btn" @click="sendCheck">Order</button>
             </div>
