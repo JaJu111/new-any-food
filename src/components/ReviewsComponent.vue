@@ -8,7 +8,11 @@
             </div>
 
             <div class="reviews-box__right">
-                {{ i.star }}
+                <!-- <div class="star-box"> -->
+                    <div v-for="star in i.star">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                <!-- </div> -->
             </div>
         </div>
 
@@ -83,6 +87,13 @@ export default class ReviewsComponent extends Vue {
     span
         font-size: 16px
         line-height: 24px
+
+    &__right
+        display: flex
+        font-size: 12px
+
+        i
+            color: #ffd25d
 
 .add-review-box
     padding: 20px 26px
