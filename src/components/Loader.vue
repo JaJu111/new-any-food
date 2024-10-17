@@ -55,6 +55,6 @@ export default class Loader extends Vue {
 @media (max-width: 430px)
     .spinner-grow 
         top: 30%
-        left: 46%
+        left: 45%
 
 </style>
