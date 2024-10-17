@@ -1,66 +1,72 @@
 <template>
-    <div class="home-page">
-        <HomeHeader />
+    <div>
+        <div class="home-page">
+            <HomeHeader />
 
-        <div class="main-box">
-            <img src="../assets/header-img.jpg">
+            <Loader v-if="loadingPage" :loading="loadingPage"/>
 
-            <div class="main-header__box">
-                <h1>Order Food</h1>
-                <span>From {{ restaurants.length }} Restaurants</span>
-            </div>
-        </div>
+            <div v-else>
+                <div class="main-box">
+                    <img src="../assets/header-img.jpg">
 
-        <div class="content-tabs">
-            <div class="tabs-header">
-                <div class="tabs-container">
-                    <div class="tabs-list">
-                        <span>Cuisines:</span>
-
-                        <ul>
-                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'All'}">All</li>
-                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Pizza'}">Pizza</li>
-                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Sushi'}">Sushi</li>
-                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Vegan'}">Vegan</li>
-                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Steak'}">Steak</li>
-                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Asian'}">Asian</li>
-                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Seafood'}">Seafood</li>
-                            <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Pasta'}">Pasta</li>
-                        </ul>
+                    <div class="main-header__box">
+                        <h1>Order Food</h1>
+                        <span>From {{ restaurants.length }} Restaurants</span>
                     </div>
                 </div>
-            </div>
 
-            <div class="tabs-content">
-                <div class="tab-panel">
-                    <div 
-                        v-for="item in getRestaurant" :key="item.id" 
-                        class="restaurant-card"
-                        @click="getInfoRestaurant(item)"
-                    >
-                        <div class="restaurant-card-img">
-                            <img :src="item.img">
+                <div class="content-tabs">
+                    <div class="tabs-header">
+                        <div class="tabs-container">
+                            <div class="tabs-list">
+                                <span>Cuisines:</span>
+
+                                <ul>
+                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'All'}">All</li>
+                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Pizza'}">Pizza</li>
+                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Sushi'}">Sushi</li>
+                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Vegan'}">Vegan</li>
+                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Steak'}">Steak</li>
+                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Asian'}">Asian</li>
+                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Seafood'}">Seafood</li>
+                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Pasta'}">Pasta</li>
+                                </ul>
+                            </div>
                         </div>
+                    </div>
 
-                        <div class="restaurant-card-info">
-                            <h4>{{ item.title }}</h4>
-                            <p>{{ item.category }}</p>
-
-                            <div>
-                                <div v-for="i in item.stars">
-                                    <i class="fa-solid fa-star"></i>
+                    <div class="tabs-content">
+                        <div class="tab-panel">
+                            <div 
+                                v-for="item in getRestaurant" :key="item.id" 
+                                class="restaurant-card"
+                                @click="getInfoRestaurant(item)"
+                            >
+                                <div class="restaurant-card-img">
+                                    <img :src="item.img">
                                 </div>
 
-                                <span>({{ item.stars }})</span>
+                                <div class="restaurant-card-info">
+                                    <h4>{{ item.title }}</h4>
+                                    <p>{{ item.category }}</p>
+
+                                    <div>
+                                        <div v-for="i in item.stars">
+                                            <i class="fa-solid fa-star"></i>
+                                        </div>
+
+                                        <span>({{ item.stars }})</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div v-if="sendCheck" class="banner-box">
-            <h1>Thank You! Your order is being prepared</h1>
+            <div v-if="sendCheck" class="banner-box">
+                <h1>Thank You! Your order is being prepared</h1>
+            </div>
         </div>
     </div>
 </template>
@@ -68,12 +74,14 @@
 <script lang="ts">
 import { Component, Mixins } from "vue-property-decorator";
 import HomeHeader from "@/components/HomeHeader.vue";
+import Loader from "@/components/Loader.vue";
 import AllRestaurants from "@/mixins/restaurants";
 import { AFRestaurants } from "@/mixins/interface";
 
 @Component({
     components: {
-        HomeHeader
+        HomeHeader,
+        Loader
     }
 })
 
@@ -82,8 +90,13 @@ export default class HomeComponent extends Mixins(
 ) {
     currentTabsSelect: string = 'All';
     sendCheck: boolean = JSON.parse(sessionStorage.getItem("sendCheck")) || false;
+    loadingPage: boolean = false;
 
     created() {
+        this.loadingPage = true;
+
+        setTimeout(() => { this.loadingPage = false; }, 1500);
+
         if (this.sendCheck) {
             setTimeout(() => {
                 this.sendCheck = false;
@@ -121,6 +134,9 @@ export default class HomeComponent extends Mixins(
 <style lang="sass" scoped>
 
 @import ../style/home
+
+.home-page
+    height: 100vh
 
 .restaurant-card
     display: flex
