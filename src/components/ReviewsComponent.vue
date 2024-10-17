@@ -137,11 +137,14 @@ export default class ReviewsComponent extends Vue {
 
 @media (max-width: 602px)
     .add-review-box
-        padding: 12px 18px
+        padding: 12px 18px 24px
 
         h1
             font-size: 18px
             margin-bottom: 14px
+
+        h2
+            font-size: 16px
 
         textarea
             width: 100%
