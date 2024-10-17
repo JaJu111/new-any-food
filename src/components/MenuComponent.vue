@@ -21,25 +21,25 @@
 
         <div v-else class="menu-left">
             <div class="form-send">
-                <span class="form-send__title">Name</span>
+                <span class="form-send__title">Ваша имя</span>
                 <input v-model.trim="userName" type="text" :class="['form-control my-2', {'error-input': errorName}]">
                 <!-- <p v-if="errorName" class="error-text">Enter Name</p> -->
 
-                <span class="form-send__title">Phone Number</span>
+                <span class="form-send__title">Ваша номер телефон</span>
                 <input v-model.trim="userPhone" type="number" :class="['form-control my-2', {'error-input': errorPhone}]">
                 <!-- <p v-if="errorPhone" class="error-text">Enter phone number</p> -->
 
-                <span class="form-send__title">Address</span>
+                <span class="form-send__title">Адрес доставки</span>
                 <textarea v-model.trim="userAdress" :class="['form-control my-2', {'error-input': errorAddress}]"></textarea>
                 <!-- <p v-if="errorAddress" class="error-text">Enter address</p> -->
 
-                <button class="checkout-btn" @click="sendCheck">Order</button>
+                <button class="checkout-btn" @click="sendCheck">Заказать</button>
             </div>
         </div>
 
         <div class="menu-right">
-            <h1 v-if="!getMenuArr.length">Select a meal from the list</h1>
-            <h1 v-else>Basket</h1>
+            <h1 v-if="!getMenuArr.length">Выберите блюдо из списка</h1>
+            <h1 v-else>Корзина</h1>
 
             <div v-if="getMenuArr.length" v-for="(i, idx) in restaurant.menu" :key="idx" class="add-card">
                 <span v-if="i.dish !== 0" class="title">{{ i.title }}</span>
@@ -59,19 +59,19 @@
 
             <div v-if="getMenuArr.length" class="checkout-box">
                 <div class="checkout-box__info">
-                    <span class="checkout-box__info-text">Sub-total</span>
+                    <span class="checkout-box__info-text">Промежуточный итог:</span>
                     <span class="checkout-box__info-text">{{ getTotalAmount }} {{ currentCurrency }}</span>
                 </div>
                 <div class="checkout-box__info">
-                    <span class="checkout-box__info-text">Delivery costs:</span>
-                    <span class="checkout-box__info-text">FREE</span>
+                    <span class="checkout-box__info-text">Стоимость доставки:</span>
+                    <span class="checkout-box__info-text">Бесплатно</span>
                 </div>
                 <div class="checkout-box__info">
-                    <span class="checkout-box__info-total">Total</span>
+                    <span class="checkout-box__info-total">Общий:</span>
                     <span class="checkout-box__info-total">{{ getTotalAmount }} {{ currentCurrency }}</span>
                 </div>
 
-                <button v-if="!selectCheck" class="checkout-btn" @click="changeCheck">Checkout</button>
+                <button v-if="!selectCheck" class="checkout-btn" @click="changeCheck">Проверить</button>
             </div>
         </div>
     </div>

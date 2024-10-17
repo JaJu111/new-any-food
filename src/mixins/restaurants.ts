@@ -7,7 +7,7 @@ export default class AllRestaurants extends Vue {
         {
             id: 1,
             title: 'Dishoom',
-            category: 'pizza, sushi, vegan',
+            category: 'пицца, суши, веганский',
             stars: 3,
             headerImg: 'https://course-react.javascript.ru/assets/header/sushi_5.jpg',
             img: 'https://course-react.javascript.ru/assets/thumb/sushi_5.jpg',
@@ -30,12 +30,32 @@ export default class AllRestaurants extends Vue {
                     amount: 8,
                     dish: 0
                 }
+            ],
+            rate: [
+                {
+                    userId: 1,
+                    name: 'Антон',
+                    text: 'Мне очень понравился)',
+                    star: 5
+                },
+                {
+                    userId: 2,
+                    name: 'Елена',
+                    text: 'Доставка быстрый!',
+                    star: 4
+                },
+                {
+                    userId: 3,
+                    name: 'Ким',
+                    text: 'Ммм очень вкусный',
+                    star: 5
+                },
             ]
         },
         {
             id: 2,
             title: 'Homeslice',
-            category: 'steak',
+            category: 'стейк',
             stars: 4,
             headerImg: 'https://course-react.javascript.ru/assets/header/ribs_5.jpg',
             img: 'https://course-react.javascript.ru/assets/thumb/ribs_5.jpg',
@@ -52,12 +72,26 @@ export default class AllRestaurants extends Vue {
                     amount: 10,
                     dish: 0
                 }
+            ],
+            rate: [
+                {
+                    userId: 1,
+                    name: 'Евгений',
+                    text: 'Дольго ждать(',
+                    star: 3
+                },
+                {
+                    userId: 2,
+                    name: 'Тимур',
+                    text: 'Мне нравится',
+                    star: 5
+                }
             ]
         },
         {
             id: 3,
             title: 'Fabrique',
-            category: 'asian, sushi, seafood',
+            category: 'азиатский, суши, морепродукты',
             stars: 5,
             headerImg: 'https://course-react.javascript.ru/assets/header/sushi_2.jpg',
             img: 'https://course-react.javascript.ru/assets/thumb/sushi_2.jpg',
@@ -80,12 +114,26 @@ export default class AllRestaurants extends Vue {
                     amount: 4,
                     dish: 0
                 }
+            ],
+            rate: [
+                {
+                    userId: 1,
+                    name: 'Дима',
+                    text: 'Супер, советую заказать!',
+                    star: 5
+                },
+                {
+                    userId: 2,
+                    name: 'Андрей',
+                    text: 'Мне нравится!',
+                    star: 5
+                }
             ]
         },
         {
             id: 4,
             title: 'Flat Iron',
-            category: 'pasta, pizza',
+            category: 'паста, пицца',
             stars: 2,
             headerImg: 'https://course-react.javascript.ru/assets/header/pizza_4.jpg',
             img: 'https://course-react.javascript.ru/assets/thumb/pizza_4.jpg',
@@ -101,6 +149,20 @@ export default class AllRestaurants extends Vue {
                     name: 'bread, beef',
                     amount: 7,
                     dish: 0
+                }
+            ],
+            rate: [
+                {
+                    userId: 1,
+                    name: 'Света',
+                    text: 'Супер!!!',
+                    star: 5
+                },
+                {
+                    userId: 2,
+                    name: 'Анжелика',
+                    text: 'Мне нравится! очень вкусный)',
+                    star: 5
                 }
             ]
         }

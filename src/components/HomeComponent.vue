@@ -10,8 +10,8 @@
                     <img src="../assets/header-img.jpg">
 
                     <div class="main-header__box">
-                        <h1>Order Food</h1>
-                        <span>From {{ restaurants.length }} Restaurants</span>
+                        <h1>Заказать еду</h1>
+                        <span>Из {{ restaurants.length }} Ресторанов</span>
                     </div>
                 </div>
 
@@ -19,17 +19,17 @@
                     <div class="tabs-header">
                         <div class="tabs-container">
                             <div class="tabs-list">
-                                <span>Cuisines:</span>
+                                <span>Кухни:</span>
 
                                 <ul>
-                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'All'}">All</li>
-                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Pizza'}">Pizza</li>
-                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Sushi'}">Sushi</li>
-                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Vegan'}">Vegan</li>
-                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Steak'}">Steak</li>
-                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Asian'}">Asian</li>
-                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Seafood'}">Seafood</li>
-                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Pasta'}">Pasta</li>
+                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Все'}">Все</li>
+                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Пицца'}">Пицца</li>
+                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Суши'}">Суши</li>
+                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Веганский'}">Веганский</li>
+                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Стейк'}">Стейк</li>
+                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Азиатский'}">Азиатский</li>
+                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Морепродукты'}">Морепродукты</li>
+                                    <li @click="selectTabs($event)" :class="{'active': currentTabsSelect === 'Паста'}">Паста</li>
                                 </ul>
                             </div>
                         </div>
@@ -65,7 +65,7 @@
             </div>
 
             <div v-if="sendCheck" class="banner-box">
-                <h1>Thank You! Your order is being prepared</h1>
+                <h1>Спасибо! Ваш заказ готовится</h1>
             </div>
         </div>
     </div>
@@ -88,7 +88,7 @@ import { AFRestaurants } from "@/mixins/interface";
 export default class HomeComponent extends Mixins(
     AllRestaurants
 ) {
-    currentTabsSelect: string = 'All';
+    currentTabsSelect: string = 'Все';
     sendCheck: boolean = JSON.parse(sessionStorage.getItem("sendCheck")) || false;
     loadingPage: boolean = false;
 
@@ -119,7 +119,7 @@ export default class HomeComponent extends Mixins(
     }
 
     get getRestaurant(): AFRestaurants[] {
-        if (this.currentTabsSelect === 'All') {
+        if (this.currentTabsSelect === 'Все') {
             return this.restaurants;
         } else {
             return this.restaurants.filter((i: AFRestaurants) => {
@@ -178,5 +178,24 @@ export default class HomeComponent extends Mixins(
     .tabs-list
         overflow-x: scroll
         justify-content: flex-start
+
+@media (max-width: 470px)
+    .restaurant-card
+        padding: 16px
+
+        &-info
+            h4
+                font-size: 17px
+                margin-bottom: 4px
+
+            p
+                font-size: 12px
+                line-height: 1
+
+            div
+                font-size: 10px
+
+        &-img
+            width: 80px
 
 </style>

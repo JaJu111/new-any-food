@@ -30,8 +30,8 @@
                     <div class="tabs-container">
                         <div class="tabs-list">
                             <ul>
-                                <li @click="selectTabs($event)" :class="{'active': $route.path === '/restaurant/menu'}">Menu</li>
-                                <li @click="selectTabs($event)" :class="{'active': $route.path === '/restaurant/reviews'}">Reviews</li>
+                                <li @click="selectTabs($event)" :class="{'active': $route.path === '/restaurant/menu'}">Меню</li>
+                                <li @click="selectTabs($event)" :class="{'active': $route.path === '/restaurant/reviews'}">Отзывы</li>
                             </ul>
                         </div>
                     </div>
@@ -63,7 +63,7 @@ import Loader from "@/components/Loader.vue";
 export default class RestaurantComponent extends Vue {
     restaurant: AFRestaurants = JSON.parse(sessionStorage.getItem("restaurant")) || {};
     currentCurrency: string = JSON.parse(sessionStorage.getItem("currency")) || 'USD';
-    currentTabsSelect: string = 'Menu';
+    currentTabsSelect: string = 'Меню';
     loadingPage: boolean = false;
 
     created() {
@@ -75,7 +75,7 @@ export default class RestaurantComponent extends Vue {
     }
 
     init(): void {
-        if (this.currentTabsSelect === 'Menu') {
+        if (this.currentTabsSelect === 'Меню') {
             if (this.$route.path !== '/restaurant/menu') {
                 this.$router.push('/restaurant/menu');
             }

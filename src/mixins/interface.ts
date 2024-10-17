@@ -7,6 +7,7 @@ export interface AFRestaurants {
     headerImg: string
     img: string
     menu: AFRestaurantsInfo[]
+    rate: AFRestaurantRate[]
 }
 
 export interface AFRestaurantsInfo {
@@ -14,6 +15,13 @@ export interface AFRestaurantsInfo {
     name: string
     amount: number
     dish: number
+}
+
+export interface AFRestaurantRate {
+    userId: number
+    name: string
+    text: string
+    star: number
 }
 
 export interface AFUserSend {
