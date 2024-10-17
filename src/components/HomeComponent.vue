@@ -63,10 +63,10 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div v-if="sendCheck" class="banner-box">
-                <h1>Thank You! Your order is being prepared</h1>
-            </div>
+        <div v-if="sendCheck" class="banner-box">
+            <h1>Thank You! Your order is being prepared</h1>
         </div>
     </div>
 </template>
