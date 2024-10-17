@@ -26,7 +26,6 @@ export default class Loader extends Vue {
     border-radius: 50%
     opacity: 0
     animation: grow 0.75s infinite ease-in-out
-    transform: translateX(50%)
     z-index: 10
 
 @keyframes grow 
@@ -55,6 +54,8 @@ export default class Loader extends Vue {
 @media (max-width: 430px)
     .spinner-grow 
         top: 30%
-        left: 45%
+        left: 48%
+        width: 2rem
+        height: 2rem
 
 </style>
