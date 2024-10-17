@@ -1,11 +1,11 @@
 <template>
     <div>
-        <div class="home-page">
-            <HomeHeader />
+        <HomeHeader />
 
-            <Loader v-if="loadingPage" :loading="loadingPage"/>
+        <Loader v-if="loadingPage" :loading="loadingPage"/>
 
-            <div v-else>
+        <div v-else class="home-page">
+            <div>
                 <div class="main-box">
                     <img src="../assets/header-img.jpg">
 
@@ -134,9 +134,6 @@ export default class HomeComponent extends Mixins(
 <style lang="sass" scoped>
 
 @import ../style/home
-
-.home-page
-    height: 100vh
 
 .restaurant-card
     display: flex
