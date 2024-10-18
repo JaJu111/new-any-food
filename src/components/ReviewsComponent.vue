@@ -8,8 +8,14 @@
             </div>
 
             <div class="reviews-box__right">
-                <div v-for="star in i.star">
-                    <i class="fa-solid fa-star"></i>
+                <div class="active-box">
+                    <div v-for="star in i.star">
+                        <i class="fa-solid fa-star active-star"></i>
+                    </div>
+                </div>
+
+                <div v-for="star in 5">
+                    <i class="fa-solid fa-star not-active"></i>
                 </div>
             </div>
         </div>

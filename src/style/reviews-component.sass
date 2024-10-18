@@ -17,11 +17,20 @@
         line-height: 24px
 
     &__right
+        position: relative
         display: flex
         font-size: 12px
 
-        i
+        div.active-box
+            display: flex
+            position: absolute
+            right: 0
+
+        i.active-star
             color: #ffd25d
+
+        i.not-active
+            color: #cfcfcf
 
 .add-review-box
     padding: 20px 26px
