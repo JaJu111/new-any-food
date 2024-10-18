@@ -118,7 +118,7 @@ export default class MenuComponentMixin extends Vue {
         }
 
         if (USER.name && USER.phone && USER.address) {
-            this.$router.push('/');
+            this.$router.push('/home');
 
             sessionStorage.setItem('user', JSON.stringify(USER));
             sessionStorage.setItem("sendCheck", JSON.stringify(true));

@@ -2,7 +2,7 @@
     <div>
         <div class="navbar-box">
             <div class="navbar-box-container">
-                <router-link to="/">
+                <router-link to="/home">
                     <img src="../assets/logo.svg" class="mt-1">
                 </router-link>
 

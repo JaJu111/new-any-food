@@ -1,0 +1,90 @@
+.login-page
+    position: relative
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 100vh
+    background-image: url(../assets/bg-burger.jpg)
+    background-size: cover
+    background-position: center
+
+.bg-box
+    position: absolute
+    width: 100%
+    height: 100%
+    background-color: #000
+    // backdrop-filter: blur(4px)
+    opacity: 0.8
+
+.login-content
+    width: 400px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    background-color: #3f3f3f
+    border-radius: 12px
+    box-shadow: 0 2px 16px #0000003d
+    padding: 20px
+    user-select: none
+    z-index: 1
+
+    img
+        width: 100px
+
+.top-box
+    display: flex
+    margin-bottom: 24px
+
+.title
+    color: #fff
+    font-size: 20px
+    font-weight: 500
+    margin-bottom: 2px
+    margin-right: 12px
+
+.form
+    width: 100%
+
+.form input
+    margin-top: 6px
+
+.form input:focus
+    outline: none
+    border-color: #aadcff
+    box-shadow: 0 0 0 .2rem #aadcff
+
+.form span
+    color: #fff
+
+.error-text
+    color: #dc3545
+    margin-top: 2px
+    margin-bottom: 6px
+
+.form .error-input:focus
+    outline: none
+    border-color: #dc3545
+    box-shadow: 0 0 0 .2rem #9f5959
+
+.form-bottom
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding-top: 14px
+
+    button
+        width: 100%
+        font-weight: 500
+
+
+@media (max-width: 460px)
+    .login-page
+        padding: 0 24px
+
+    .form-bottom
+        gap: 15px
+
+    .form-bottom span
+        font-size: 14px

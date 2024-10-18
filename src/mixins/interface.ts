@@ -34,3 +34,8 @@ export interface AFReviewsStarBox {
     star: number
     active: boolean
 }
+
+export interface AFUser {
+    name: string
+    phoneNumber: string
+}

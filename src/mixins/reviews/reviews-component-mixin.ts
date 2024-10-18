@@ -1,9 +1,10 @@
-import { AFRestaurants, AFReviewsStarBox } from '@/mixins/interface';
+import { AFRestaurantRate, AFRestaurants, AFReviewsStarBox, AFUser } from '@/mixins/interface';
 import { Vue, Component, Watch } from 'vue-property-decorator';
 
 @Component
 export default class ReviewsComponentMixin extends Vue {
     restaurant: AFRestaurants = JSON.parse(sessionStorage.getItem("restaurant")) || {};
+    USER: AFUser = JSON.parse(sessionStorage.getItem("user")) || {};
     getReview: string = '';
     errorReview: boolean = false;
     noStarsSelected: boolean = false;
@@ -33,9 +34,9 @@ export default class ReviewsComponentMixin extends Vue {
     sendReview(): void {
         const ID = Math.floor(Math.random() * 30);
         
-        const UserReview = {
+        const UserReview: AFRestaurantRate = {
             userId: ID,
-            name: 'UNKNOWN',
+            name: this.USER.name,
             text: this.getReview,
             star: this.selectStars
         }

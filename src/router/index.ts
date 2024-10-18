@@ -5,12 +5,18 @@ import HomeComponent from '@/views/HomeView.vue';
 import RestaurantComponent from '@/components/RestaurantComponent.vue';
 import MenuComponent from '@/components/MenuComponent.vue';
 import ReviewsComponent from '@/components/ReviewsComponent.vue';
+import LoginComponent from '@/components/LoginComponent.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
     {
         path: '/',
+        name: 'login',
+        component: LoginComponent
+    },
+    {
+        path: '/home',
         name: 'home',
         component: HomeComponent
     },
