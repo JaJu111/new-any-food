@@ -29,3 +29,8 @@ export interface AFUserSend {
     phone: string
     address: string
 }
+
+export interface AFReviewsStarBox {
+    star: number
+    active: boolean
+}
