@@ -40,9 +40,17 @@
 <script lang="ts">
 import { AFUser } from '@/mixins/interface';
 import { Vue, Component, Watch } from 'vue-property-decorator';
+import { mapActions } from 'vuex';
+import { Action } from 'vuex-class';
 
-@Component
+@Component({
+    methods: {
+    ...mapActions('user', ['login'])
+    }
+})
 export default class LoginComponent extends Vue {
+    @Action('login', { namespace: 'user' }) login!: (user: AFUser) => void;
+
     userName: string = '';
     userPhone: string = '';
     errorName: boolean = false;
@@ -74,7 +82,7 @@ export default class LoginComponent extends Vue {
                 }
             });
 
-            sessionStorage.setItem('user', JSON.stringify(user));
+            this.login(user);
             this.userName = this.userPhone = '';
         }
     }
